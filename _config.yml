@@ -1,7 +1,18 @@
-defaults:
-    -
-        scope:
-            path: "" #empty string means all files
-            type: "pages"
-        values:
-            layout: "default"
+markdown:   redcarpet
+pygments:   true
+
+permalink:  pretty
+title:      Brandon Atkinson
+url:        brandon.acknsyn.com
+
+author:     
+    name:   'Brandon Atkinson'
+    url:    https://twitter.com/gorjusborg
+
+paginate:   1
+
+github:
+    repo:   github.com/brandon-atkinson/brandon-atkinson.github.io
+
+pages_list: {'About':'/about', 'Archive':'/archive', 'Feed':'/atom.xml'}
+
