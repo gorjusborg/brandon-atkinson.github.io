@@ -1,0 +1,7 @@
+defaults:
+    -
+        scope:
+            path: "" #empty string means all files
+            type: "pages"
+        values:
+            layout: "default"
