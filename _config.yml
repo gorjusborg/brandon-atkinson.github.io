@@ -16,3 +16,16 @@ github:
 
 pages_list: {'About':'/about', 'Archive':'/archive', 'Feed':'/atom.xml'}
 
+defaults:
+    - 
+        scope:
+            path: ""
+            type: "posts"
+        values:
+            layout: "post"
+    -
+        scope:
+            path: ""
+            type: "pages"
+        value:
+            layout: "default"

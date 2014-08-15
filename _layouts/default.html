@@ -3,6 +3,19 @@
 {% include head.html %}
 <body>
 {% include foundation.html %}
+<nav class="top-bar" data-topbar>
+    <ul class="title-area">
+        <li class="name">
+            <h1><a href="#">{ site.title }</a></h1>
+        </li>
+    </ul>
+    <section>
+        <ul class="left">
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        <ul>
+    </section>
+</nav>
 {{ content }}
 </body>
 </html>
