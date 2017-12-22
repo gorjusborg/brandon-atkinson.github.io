@@ -7,14 +7,14 @@
 <title>Posts | Brandon Atkinson</title>
 
 
-<link rel="stylesheet" href="http://example.org//css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<link rel="stylesheet" href="https://brandon.acknsyn.com//css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
 <body>
 
 <section class="section">
   <div class="container">
     <nav class="nav">
       <div class="nav-left">
-        <a class="nav-item" href="http://example.org/"><h1 class="title is-4">Brandon Atkinson</h1></a>
+        <a class="nav-item" href="https://brandon.acknsyn.com/"><h1 class="title is-4">Brandon Atkinson</h1></a>
       </div>
       <div class="nav-right">
         <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:brandon.n.atkinson@gmail.com' target='_blank' rel='noopener'>
@@ -61,13 +61,13 @@
     
     <article>
       <h2 class="subtitle is-6">August 21, 2015</h2>
-      <h1 class="title"><a href="http://example.org/post/2015-08-21-go-strings-and-character-encoding/">Go, Strings, and Character Encoding</a></h1>
+      <h1 class="title"><a href="https://brandon.acknsyn.com/post/2015-08-21-go-strings-and-character-encoding/">Go, Strings, and Character Encoding</a></h1>
       <div class="content">
         I recently had a conversation with a friend about how UTF-8 and character encoding works in general, centered around why strings seem weird in Go if you&rsquo;re used to how they&rsquo;re handled in other languages.
 The way that Go handles strings is pretty cool: a string is slice of bytes. Period. End of story.
 It also just so happens that a Go program is defined as a sequence of UTF-8 characters (that&rsquo;s all that is supported), so unless you insert raw bytes into them using escapes, a string literal is always UTF-8 in Go.
         
-        <a class="button is-link" href="http://example.org/post/2015-08-21-go-strings-and-character-encoding/" style="height:28px">
+        <a class="button is-link" href="https://brandon.acknsyn.com/post/2015-08-21-go-strings-and-character-encoding/" style="height:28px">
           Read more
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>
@@ -79,13 +79,13 @@ It also just so happens that a Go program is defined as a sequence of UTF-8 char
     
     <article>
       <h2 class="subtitle is-6">August 19, 2015</h2>
-      <h1 class="title"><a href="http://example.org/post/2015-08-19-go-editor-setup/">Go Editor Setup</a></h1>
+      <h1 class="title"><a href="https://brandon.acknsyn.com/post/2015-08-19-go-editor-setup/">Go Editor Setup</a></h1>
       <div class="content">
         After a few nights reading the golang-book and hacking around with golang in general, I finally broke down and set up Vim to make it not feel like Unix circa 1970. I took a look at the IDE and text editor plugins list on the go github page and finally settled on a setup.
 Setup  Vundle for managing vim plugins
  fatih/vim-go for code completion and syntax awareness fatih/molokai color scheme  What I learned  I&rsquo;ve used vim for over a decade and know nothing about it Vundle&rsquo;s required config breaks git if you are using the vi alias.
         
-        <a class="button is-link" href="http://example.org/post/2015-08-19-go-editor-setup/" style="height:28px">
+        <a class="button is-link" href="https://brandon.acknsyn.com/post/2015-08-19-go-editor-setup/" style="height:28px">
           Read more
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>
@@ -97,13 +97,13 @@ Setup  Vundle for managing vim plugins
     
     <article>
       <h2 class="subtitle is-6">November 15, 2014</h2>
-      <h1 class="title"><a href="http://example.org/post/2014-11-15-go-cd-github-ssh/">Go CD with github via ssh</a></h1>
+      <h1 class="title"><a href="https://brandon.acknsyn.com/post/2014-11-15-go-cd-github-ssh/">Go CD with github via ssh</a></h1>
       <div class="content">
         Trying to use a git@ url to pull from using the Go continous delivery agent? I found http://support.thoughtworks.com/entries/21593593-Issues-with-Go-and-Github-SSH-Keys-?flash_digest=53af7e8bf011eda1e9112350616a350880049a70 on the thoughtworks go support forum.
 Dave Green correctly said that all you had to do was:
  sudo su - go # do the following commands as the &lsquo;go&rsquo; user ssh-keygen # don&rsquo;t set a passsphrase on the key add the ~go/.ssh/id_rsa.pub contents to a new key on github git clone # this adds the github ssh server to known_hosts  The last step was what was tripping me up; the test clone adds the host signature to the known_hosts file.
         
-        <a class="button is-link" href="http://example.org/post/2014-11-15-go-cd-github-ssh/" style="height:28px">
+        <a class="button is-link" href="https://brandon.acknsyn.com/post/2014-11-15-go-cd-github-ssh/" style="height:28px">
           Read more
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>
@@ -115,7 +115,7 @@ Dave Green correctly said that all you had to do was:
     
     <article>
       <h2 class="subtitle is-6">August 22, 2014</h2>
-      <h1 class="title"><a href="http://example.org/post/2014-08-22-jekyll-syntax-highlighting/">Jekyll Syntax Highlighting</a></h1>
+      <h1 class="title"><a href="https://brandon.acknsyn.com/post/2014-08-22-jekyll-syntax-highlighting/">Jekyll Syntax Highlighting</a></h1>
       <div class="content">
         Jekyll and github-pages support syntax highlighting using the pygments library.
 To use it:
@@ -124,7 +124,7 @@ To use it:
   For instance, the code above should appear like the following:
 {% highlight groovy %} class GroovyClass { def cry() { println &lsquo;Whaaa!
         
-        <a class="button is-link" href="http://example.org/post/2014-08-22-jekyll-syntax-highlighting/" style="height:28px">
+        <a class="button is-link" href="https://brandon.acknsyn.com/post/2014-08-22-jekyll-syntax-highlighting/" style="height:28px">
           Read more
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>
@@ -136,12 +136,12 @@ To use it:
     
     <article>
       <h2 class="subtitle is-6">August 20, 2014</h2>
-      <h1 class="title"><a href="http://example.org/post/2014-08-20-ratpack-simpler-http-services/">Ratpack - Simpler HTTP Services</a></h1>
+      <h1 class="title"><a href="https://brandon.acknsyn.com/post/2014-08-20-ratpack-simpler-http-services/">Ratpack - Simpler HTTP Services</a></h1>
       <div class="content">
         After writing http services in spring-mvc and jax-rs a number of times, I&rsquo;m of the opinion that the stacks are a bit too complicated. Its not that they don&rsquo;t work, or even that they are hard to understand. They just feel a bit heavyweight (and surprisingly awkward) for implementing restful services, which is what I seem to be writing for the backend these days.
 I understand why the java REST frameworks look the way they do: they were built on standards (the servlet api), and grew out of their respective historical uses, XML-based HTTP web services for jax-rs, and MVC web framework for spring-mvc.
         
-        <a class="button is-link" href="http://example.org/post/2014-08-20-ratpack-simpler-http-services/" style="height:28px">
+        <a class="button is-link" href="https://brandon.acknsyn.com/post/2014-08-20-ratpack-simpler-http-services/" style="height:28px">
           Read more
           <span class="icon is-small">
             <i class="fa fa-angle-double-right"></i>

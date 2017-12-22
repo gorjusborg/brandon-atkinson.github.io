@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Brandon Atkinson</title>
-    <link>http://example.org/</link>
+    <link>https://brandon.acknsyn.com/</link>
     <description>Recent content on Brandon Atkinson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/brandon-atkinson&#34;&gt;Brandon Atkinson&lt;/a&gt; 2017</copyright>
     <lastBuildDate>Fri, 21 Aug 2015 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://brandon.acknsyn.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Go, Strings, and Character Encoding</title>
-      <link>http://example.org/post/2015-08-21-go-strings-and-character-encoding/</link>
+      <link>https://brandon.acknsyn.com/post/2015-08-21-go-strings-and-character-encoding/</link>
       <pubDate>Fri, 21 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/post/2015-08-21-go-strings-and-character-encoding/</guid>
+      <guid>https://brandon.acknsyn.com/post/2015-08-21-go-strings-and-character-encoding/</guid>
       <description>I recently had a conversation with a friend about how UTF-8 and character encoding works in general, centered around why strings seem weird in Go if you&amp;rsquo;re used to how they&amp;rsquo;re handled in other languages.
 The way that Go handles strings is pretty cool: a string is slice of bytes. Period. End of story.
 It also just so happens that a Go program is defined as a sequence of UTF-8 characters (that&amp;rsquo;s all that is supported), so unless you insert raw bytes into them using escapes, a string literal is always UTF-8 in Go.</description>
@@ -25,10 +25,10 @@ It also just so happens that a Go program is defined as a sequence of UTF-8 char
     
     <item>
       <title>Go Editor Setup</title>
-      <link>http://example.org/post/2015-08-19-go-editor-setup/</link>
+      <link>https://brandon.acknsyn.com/post/2015-08-19-go-editor-setup/</link>
       <pubDate>Wed, 19 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/post/2015-08-19-go-editor-setup/</guid>
+      <guid>https://brandon.acknsyn.com/post/2015-08-19-go-editor-setup/</guid>
       <description>After a few nights reading the golang-book and hacking around with golang in general, I finally broke down and set up Vim to make it not feel like Unix circa 1970. I took a look at the IDE and text editor plugins list on the go github page and finally settled on a setup.
 Setup  Vundle for managing vim plugins
  fatih/vim-go for code completion and syntax awareness fatih/molokai color scheme  What I learned  I&amp;rsquo;ve used vim for over a decade and know nothing about it Vundle&amp;rsquo;s required config breaks git if you are using the vi alias.</description>
@@ -36,10 +36,10 @@ Setup  Vundle for managing vim plugins
     
     <item>
       <title>Go CD with github via ssh</title>
-      <link>http://example.org/post/2014-11-15-go-cd-github-ssh/</link>
+      <link>https://brandon.acknsyn.com/post/2014-11-15-go-cd-github-ssh/</link>
       <pubDate>Sat, 15 Nov 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/post/2014-11-15-go-cd-github-ssh/</guid>
+      <guid>https://brandon.acknsyn.com/post/2014-11-15-go-cd-github-ssh/</guid>
       <description>Trying to use a git@ url to pull from using the Go continous delivery agent? I found http://support.thoughtworks.com/entries/21593593-Issues-with-Go-and-Github-SSH-Keys-?flash_digest=53af7e8bf011eda1e9112350616a350880049a70 on the thoughtworks go support forum.
 Dave Green correctly said that all you had to do was:
  sudo su - go # do the following commands as the &amp;lsquo;go&amp;rsquo; user ssh-keygen # don&amp;rsquo;t set a passsphrase on the key add the ~go/.ssh/id_rsa.pub contents to a new key on github git clone # this adds the github ssh server to known_hosts  The last step was what was tripping me up; the test clone adds the host signature to the known_hosts file.</description>
@@ -47,10 +47,10 @@ Dave Green correctly said that all you had to do was:
     
     <item>
       <title>Jekyll Syntax Highlighting</title>
-      <link>http://example.org/post/2014-08-22-jekyll-syntax-highlighting/</link>
+      <link>https://brandon.acknsyn.com/post/2014-08-22-jekyll-syntax-highlighting/</link>
       <pubDate>Fri, 22 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/post/2014-08-22-jekyll-syntax-highlighting/</guid>
+      <guid>https://brandon.acknsyn.com/post/2014-08-22-jekyll-syntax-highlighting/</guid>
       <description>Jekyll and github-pages support syntax highlighting using the pygments library.
 To use it:
  include pygments aware CSS somewhere in your page template put highlight code block, referencing the desired syntax
@@ -61,20 +61,20 @@ To use it:
     
     <item>
       <title>Ratpack - Simpler HTTP Services</title>
-      <link>http://example.org/post/2014-08-20-ratpack-simpler-http-services/</link>
+      <link>https://brandon.acknsyn.com/post/2014-08-20-ratpack-simpler-http-services/</link>
       <pubDate>Wed, 20 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/post/2014-08-20-ratpack-simpler-http-services/</guid>
+      <guid>https://brandon.acknsyn.com/post/2014-08-20-ratpack-simpler-http-services/</guid>
       <description>After writing http services in spring-mvc and jax-rs a number of times, I&amp;rsquo;m of the opinion that the stacks are a bit too complicated. Its not that they don&amp;rsquo;t work, or even that they are hard to understand. They just feel a bit heavyweight (and surprisingly awkward) for implementing restful services, which is what I seem to be writing for the backend these days.
 I understand why the java REST frameworks look the way they do: they were built on standards (the servlet api), and grew out of their respective historical uses, XML-based HTTP web services for jax-rs, and MVC web framework for spring-mvc.</description>
     </item>
     
     <item>
       <title>Introduction</title>
-      <link>http://example.org/post/2014-08-15-introduction/</link>
+      <link>https://brandon.acknsyn.com/post/2014-08-15-introduction/</link>
       <pubDate>Fri, 15 Aug 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/post/2014-08-15-introduction/</guid>
+      <guid>https://brandon.acknsyn.com/post/2014-08-15-introduction/</guid>
       <description>Welcome. I&amp;rsquo;m Brandon Atkinson. I&amp;rsquo;m into things that have buttons and beep.</description>
     </item>
     
