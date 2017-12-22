@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.31.1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title></title>
+
+
+<link rel="stylesheet" href="http://example.org//css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://example.org/"><h1 class="title is-4">Brandon Atkinson</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:brandon.n.atkinson@gmail.com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/brandon-atkinson' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/brandon-atkinson-5a45a73' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/gorjusborg' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    
+    <article>
+      <h2 class="subtitle is-6">August 21, 2015</h2>
+      <h1 class="title"><a href="http://example.org/post/2015-08-21-go-strings-and-character-encoding/">Go, Strings, and Character Encoding</a></h1>
+      <div class="content">
+        I recently had a conversation with a friend about how UTF-8 and character encoding works in general, centered around why strings seem weird in Go if you&rsquo;re used to how they&rsquo;re handled in other languages.
+The way that Go handles strings is pretty cool: a string is slice of bytes. Period. End of story.
+It also just so happens that a Go program is defined as a sequence of UTF-8 characters (that&rsquo;s all that is supported), so unless you insert raw bytes into them using escapes, a string literal is always UTF-8 in Go.
+        
+        <a class="button is-link" href="http://example.org/post/2015-08-21-go-strings-and-character-encoding/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">August 19, 2015</h2>
+      <h1 class="title"><a href="http://example.org/post/2015-08-19-go-editor-setup/">Go Editor Setup</a></h1>
+      <div class="content">
+        After a few nights reading the golang-book and hacking around with golang in general, I finally broke down and set up Vim to make it not feel like Unix circa 1970. I took a look at the IDE and text editor plugins list on the go github page and finally settled on a setup.
+Setup  Vundle for managing vim plugins
+ fatih/vim-go for code completion and syntax awareness fatih/molokai color scheme  What I learned  I&rsquo;ve used vim for over a decade and know nothing about it Vundle&rsquo;s required config breaks git if you are using the vi alias.
+        
+        <a class="button is-link" href="http://example.org/post/2015-08-19-go-editor-setup/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">November 15, 2014</h2>
+      <h1 class="title"><a href="http://example.org/post/2014-11-15-go-cd-github-ssh/">Go CD with github via ssh</a></h1>
+      <div class="content">
+        Trying to use a git@ url to pull from using the Go continous delivery agent? I found http://support.thoughtworks.com/entries/21593593-Issues-with-Go-and-Github-SSH-Keys-?flash_digest=53af7e8bf011eda1e9112350616a350880049a70 on the thoughtworks go support forum.
+Dave Green correctly said that all you had to do was:
+ sudo su - go # do the following commands as the &lsquo;go&rsquo; user ssh-keygen # don&rsquo;t set a passsphrase on the key add the ~go/.ssh/id_rsa.pub contents to a new key on github git clone # this adds the github ssh server to known_hosts  The last step was what was tripping me up; the test clone adds the host signature to the known_hosts file.
+        
+        <a class="button is-link" href="http://example.org/post/2014-11-15-go-cd-github-ssh/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">August 22, 2014</h2>
+      <h1 class="title"><a href="http://example.org/post/2014-08-22-jekyll-syntax-highlighting/">Jekyll Syntax Highlighting</a></h1>
+      <div class="content">
+        Jekyll and github-pages support syntax highlighting using the pygments library.
+To use it:
+ include pygments aware CSS somewhere in your page template put highlight code block, referencing the desired syntax
+{% raw %} {% highlight groovy %} class GroovyClass { def cry() { println &lsquo;Whaaa!&rsquo; } } {% endhighlight %} {% endraw %}
+  For instance, the code above should appear like the following:
+{% highlight groovy %} class GroovyClass { def cry() { println &lsquo;Whaaa!
+        
+        <a class="button is-link" href="http://example.org/post/2014-08-22-jekyll-syntax-highlighting/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">August 20, 2014</h2>
+      <h1 class="title"><a href="http://example.org/post/2014-08-20-ratpack-simpler-http-services/">Ratpack - Simpler HTTP Services</a></h1>
+      <div class="content">
+        After writing http services in spring-mvc and jax-rs a number of times, I&rsquo;m of the opinion that the stacks are a bit too complicated. Its not that they don&rsquo;t work, or even that they are hard to understand. They just feel a bit heavyweight (and surprisingly awkward) for implementing restful services, which is what I seem to be writing for the backend these days.
+I understand why the java REST frameworks look the way they do: they were built on standards (the servlet api), and grew out of their respective historical uses, XML-based HTTP web services for jax-rs, and MVC web framework for spring-mvc.
+        
+        <a class="button is-link" href="http://example.org/post/2014-08-20-ratpack-simpler-http-services/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+                    
+        </div>
+      </div>
+      <div class="level-right is-marginless">
+        <div class="level-item">
+          
+          <a class="button" href="/page/2/">
+            Older
+            <span class="icon is-small is-marginless">
+              <svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <polyline points="14 6 20 12 14 18"/>
+    
+  </svg>
+            </span>
+          </a>      
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/brandon-atkinson">Brandon Atkinson</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+</body>
+</html>
+
