@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/brandon-atkinson&#34;&gt;Brandon Atkinson&lt;/a&gt; 2017</copyright>
-    <lastBuildDate>Fri, 21 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Nov 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://brandon.acknsyn.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Easy WSL Upgrades</title>
+      <link>https://brandon.acknsyn.com/post/2024-11-17-easy-wsl-upgrades/</link>
+      <pubDate>Sun, 17 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://brandon.acknsyn.com/post/2024-11-17-easy-wsl-upgrades/</guid>
+      <description>I&amp;rsquo;ve been using WSL to make developing on windows a bit more comfortable. One thing I&amp;rsquo;ve been trying to get a handle on is how to manage WSL major version upgrades. I&amp;rsquo;ve done it a different way each time I&amp;rsquo;ve needed a major upgrade, but I think I&amp;rsquo;m finally happy with the following, but it requires a bit of prep:
+ Create a virtual disk drive, formatted to a linux compatible filesystem Attach the virtual drive to WSL on login Update /etc/fstab to mount the drive to home directory Use WSL like you normally would When it is time to make a major upgrade, delete the old VM, and install the new VM Update /etc/fstab of the new VM to mount the drive to home directory  For small updates, using the distro&amp;rsquo;s package manager is fine, but this setup preserves the home directory, so it is safe to delete the VM without losing data.</description>
+    </item>
     
     <item>
       <title>Go, Strings, and Character Encoding</title>

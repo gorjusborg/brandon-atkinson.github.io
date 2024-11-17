@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Easy WSL Upgrades | Brandon Atkinson</title>
+
+
+<link rel="stylesheet" href="https://brandon.acknsyn.com//css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://brandon.acknsyn.com/"><h1 class="title is-4">Brandon Atkinson</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:brandon.n.atkinson@gmail.com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/gorjusborg' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/brandon-atkinson-5a45a73' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+    </div>
+    <h2 class="subtitle is-6">November 17, 2024</h2>
+    <h1 class="title">Easy WSL Upgrades</h1>
+      
+    <div class="content">
+      
+
+<p>I&rsquo;ve been using WSL to make developing on windows a bit more comfortable. One thing I&rsquo;ve been trying to get a handle on is how to manage WSL major version upgrades. I&rsquo;ve done it a different way each time I&rsquo;ve needed a major upgrade, but I think I&rsquo;m finally happy with the following, but it requires a bit of prep:</p>
+
+<ul>
+<li>Create a virtual disk drive, formatted to a linux compatible filesystem</li>
+<li>Attach the virtual drive to WSL on login</li>
+<li>Update /etc/fstab to mount the drive to home directory</li>
+<li>Use WSL like you normally would</li>
+<li>When it is time to make a major upgrade, delete the old VM, and install the new VM</li>
+<li>Update /etc/fstab of the new VM to mount the drive to home directory</li>
+</ul>
+
+<p>For small updates, using the distro&rsquo;s package manager is fine, but this setup preserves the home directory, so it is safe to delete the VM without losing data.</p>
+
+<p>Here are the steps:</p>
+
+<h1 id="create-the-virtual-drive">create the virtual drive</h1>
+
+<p>To create a dynamically sized (only used space takes space) virtual drive with max 100GB of storage:</p>
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="s7d0">New-VHD</span><span class="s1f40"> </span><span class="s7d0">-Path</span><span class="s1f40"> </span><span class="s7d0">C</span><span class="ss4">:</span><span class="s1388">\</span><span class="s7d0">Users</span><span class="s1388">\</span><span class="s7d0">user</span><span class="s1388">\</span><span class="s7d0">wslhome</span><span class="s1388">.</span><span class="s7d0">vhdx</span><span class="s1f40"> </span><span class="s7d0">-Dynamic</span><span class="s1f40"> </span><span class="s7d0">-SizeBytes</span><span class="s1f40"> </span><span class="s7d0">100GB</span></code></pre>
+</div>
+<h2 id="attach-the-drive-to-wsl-vm-s">attach the drive to WSL VM(s)</h2>
+
+<p>This command will attach the virtual drive to ALL WSL machines as a block device (e.g. /dev/sdX), so at this point, we can create the filesystem on it within a WSL VM:</p>
+
+<p>After creating the drive, we need to attach it to WSL. The <code>--bare</code> option prevents WSL from actually mounting the drive, despite using the <code>--mount</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-powershell" data-lang="powershell"><span class="s7d0">wsl</span><span class="s1388">.</span><span class="s7d0">exe</span><span class="s1f40"> </span><span class="s1388">-</span><span class="s7d0">-mount</span><span class="s1f40"> </span><span class="s1388">-</span><span class="s7d0">-bare</span><span class="s1f40"> </span><span class="s1388">-</span><span class="s7d0">-vhd</span><span class="s1f40"> </span><span class="s7d0">C</span><span class="ss4">:</span><span class="s1388">\</span><span class="s7d0">Users</span><span class="s1388">\</span><span class="s7d0">user</span><span class="s1388">\</span><span class="s7d0">wslhome</span><span class="s1388">.</span><span class="s7d0">vhdx</span></code></pre>
+</div>
+<h2 id="find-the-drive-device-in-wsl">Find the drive device in WSL</h2>
+
+<p>We need to figure out the name of our virtual drive device after it is attached:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="s1f40">$ lsblk </span><span class="s1770"># find your drive device based on size
+</span><span class="s1770"></span><span class="s1f40">sda      </span><span class="sc80">8</span><span class="s1f40">:0    </span><span class="sc80">0</span><span class="s1f40"> </span><span class="sc80">388</span><span class="s1f40">.4M  </span><span class="sc80">1</span><span class="s1f40"> disk
+</span><span class="s1f40">sdb      </span><span class="sc80">8</span><span class="s1f40">:16   </span><span class="sc80">0</span><span class="s1f40">     2G  </span><span class="sc80">0</span><span class="s1f40"> disk </span><span class="sfa0">[</span><span class="s1f40">SWAP</span><span class="sfa0">]</span><span class="s1f40">
+</span><span class="s1f40">sdc      </span><span class="sc80">8</span><span class="s1f40">:32   </span><span class="sc80">0</span><span class="s1f40">   100G  </span><span class="sc80">0</span><span class="s1f40"> disk
+</span><span class="s1f40">sdd      </span><span class="sc80">8</span><span class="s1f40">:48   </span><span class="sc80">0</span><span class="s1f40">     1T  </span><span class="sc80">0</span><span class="s1f40"> disk /mnt/wslg/distro</span></code></pre>
+</div>
+<p>We see that our 100GB device is named &lsquo;sdc&rsquo;, so we can reference it as <code>/dev/sdc</code> in following commands.</p>
+
+<h2 id="partition-the-drive">Partition the drive</h2>
+
+<p>The following will create a single whole disk parition.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="s1f40">$ sudo parted -s --align optimal -- /dev/sdc mklabel gpt mkpart primary ext4 </span><span class="sc80">0</span><span class="s1f40">% </span><span class="sc80">100</span><span class="s1f40">%</span></code></pre>
+</div>
+<h2 id="format-and-label-the-drive">Format and label the drive</h2>
+
+<p>We&rsquo;ve got a partition, but we can&rsquo;t store anything there until we set up a file system:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="s1f40">$ sudo mkfs -t ext4 /dev/sdc1
+</span><span class="s1f40">$ sudo e2label /dev/sde1 wslhome # add a label to make automounting a bit easier</span></code></pre>
+</div>
+<h2 id="mount-the-drive-and-copy-your-home-directory-over">Mount the drive and copy your home directory over</h2>
+
+<p>Because this drive will serve as my user directory in WSL, I figured I&rsquo;d copy over my existing stuff. So I mounted the drive somewhere to copy files over to:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="s1f40">$ sudo mkdir -p /mnt/wslhome
+</span><span class="s1f40">$ sudo mount -t ext4 --label wslhome /mnt/wslhome
+</span><span class="s1f40">$ sudo mkdir /mnt/wslhome/user
+</span><span class="s1f40">$ sudo chown user: /mnt/wslhome/user
+</span><span class="s1f40">$ </span><span class="sfa0">(</span><span class="s7d0">cd</span><span class="s1f40"> </span><span class="s7d0">$HOME</span><span class="s1388">;</span><span class="s1f40"> tar cvf - .</span><span class="sfa0">)</span><span class="s1f40"> </span><span class="s1388">|</span><span class="s1f40"> </span><span class="sfa0">(</span><span class="s7d0">cd</span><span class="s1f40"> /mnt/wslhome/user</span><span class="s1388">;</span><span class="s1f40"> tar cvf -</span><span class="sfa0">)</span><span class="s1f40"> </span><span class="s1770"># copy the entire home dir to new volume
+</span><span class="s1770"></span><span class="s1f40">$ sudo umount /mnt/wslhome </span><span class="sfa0">&amp;&amp;</span><span class="s1f40"> sudo rmdir /mnt/wslhome</span></code></pre>
+</div>
+<p>After running all of that, we&rsquo;ve populated the virtual drive with our current home dir data.</p>
+
+<h2 id="set-up-wsl-vm-to-mount-the-virtual-drive">Set up WSL VM to mount the virtual drive</h2>
+
+<p>The following command adds an entry to fstab that will mount our volume named &lsquo;wslhome&rsquo; to /home.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="s1770">#in WSL VM
+</span><span class="s1770"></span><span class="s1f40">$ </span><span class="s7d0">echo</span><span class="s1f40"> </span><span class="sc1c">&#39;LABEL=wslhome /home ext4 defaults 0 2&#39;</span><span class="s1f40"> </span><span class="s1388">|</span><span class="s1f40"> sudo tee -a /etc/fstab </span><span class="sc80">1</span><span class="s1f40">&gt;/dev/null</span></code></pre>
+</div>
+<h2 id="auto-attach-volume-to-wsl-on-login">Auto-attach volume to WSL on login</h2>
+
+<p>Unfortunately, there doesn&rsquo;t seem to be a way to set WSL to automatically attach our volume, but we need it to be attached when the VM boots, and we don&rsquo;t want to run that command every time.</p>
+
+<p>Fortunately, windows supports scheduled tasks on login, so we use that.</p>
+
+<p>Create the scheduled task to automount the WSL volume:</p>
+
+<ul>
+<li>Windows+R</li>
+<li>type &lsquo;taskschd.msc&rsquo;, hit Enter</li>
+<li>In right pane, click &lsquo;Create Basic Task&rsquo;</li>
+<li>Enter a name for the task in the &lsquo;Name&rsquo; field, click &lsquo;Next&rsquo;</li>
+<li>Choose &lsquo;When I log on&rdquo;, click &lsquo;Next&rsquo;</li>
+<li>Make sure &lsquo;Start a program&rsquo; is selected and hit &lsquo;Next&rsquo;</li>
+<li>In &lsquo;Program/script&rsquo;, enter &ldquo;C:\Windows\System32\wsl.exe&rdquo;</li>
+<li>In &lsquo;Add arguments&rsquo;, enter &ldquo;&ndash;mount &ndash;bare &ndash;vhd C:\Users\user\wslhome.vhdx&rdquo;, click &lsquo;Next&rsquo;</li>
+<li>Click &lsquo;Finish&rsquo;</li>
+</ul>
+
+<p>Now, logging in should attach our disk to WSL, automatically.</p>
+
+<h2 id="test-it">Test it!</h2>
+
+<p>At this point we should be able to start up our WSL VM and see our home directory mounted on our virtual disk:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="s1f40">$ mount </span><span class="s1388">|</span><span class="s1f40"> grep /home</span></code></pre>
+</div>
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/brandon-atkinson">Brandon Atkinson</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+</body>
+</html>
