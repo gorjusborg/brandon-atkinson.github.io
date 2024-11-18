@@ -75,7 +75,7 @@ $ sudo mkdir -p /mnt/wslhome
 $ sudo mount -t ext4 --label wslhome /mnt/wslhome
 $ sudo mkdir /mnt/wslhome/user
 $ sudo chown user: /mnt/wslhome/user
-$ (cd $HOME; tar cvf - .) | (cd /mnt/wslhome/user; tar cvf -) # copy the entire home dir to new volume
+$ (cd $HOME; tar cvf - .) | (cd /mnt/wslhome/user; tar xvf -) # copy the entire home dir to new volume
 $ sudo umount /mnt/wslhome && sudo rmdir /mnt/wslhome
 ```
 
