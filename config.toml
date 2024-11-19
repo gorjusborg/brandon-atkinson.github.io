@@ -2,12 +2,12 @@ baseURL = "https://brandon.acknsyn.com/"
 languageCode = "en-us"
 title = "Brandon Atkinson"
 theme = "kiss"
-copyright = "&copy; <a href=\"https://github.com/brandon-atkinson\">Brandon Atkinson</a> 2017"
+copyright = "&copy; <a href=\"https://github.com/gorjusborg\">Brandon Atkinson</a> 2024"
 googleAnalytics = ""
 
 # Number of posts per page
 Paginate = 5
-enableRobotsTXT = true 
+enableRobotsTXT = true
 
 pygmentsCodefences=true
 pygmentsUseClasses=true
